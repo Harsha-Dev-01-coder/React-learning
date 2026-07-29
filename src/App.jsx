@@ -10,6 +10,8 @@ import InputExample from "./components/InputExample";
 import LoginForm from "./components/LoginForm";
 import Premium from "./components/Premium";
 import FruitList from "./components/FruitList";
+import Counter from "./components/Counter";
+import UserInfo from "./components/userInfo";
 
 function App() {
   return (
@@ -20,10 +22,7 @@ function App() {
 
       <Main />
 
-      <Student
-        name="Champ"
-        course="Frontend"
-      />
+      <Student />
 
       <Card title="HTML" />
       <Card title="CSS" />
@@ -49,6 +48,10 @@ function App() {
       <Premium />
 
       <FruitList />
+
+      <Counter />
+
+      <UserInfo />
 
       <Footer />
     </>
