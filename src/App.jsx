@@ -12,6 +12,7 @@ import Premium from "./components/Premium";
 import FruitList from "./components/FruitList";
 import Counter from "./components/Counter";
 import UserInfo from "./components/userInfo";
+import Objects from "./components/Objects";
 
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
       <Counter />
 
       <UserInfo />
+
+      <Objects />
 
       <Footer />
     </>
