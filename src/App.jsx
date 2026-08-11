@@ -2,6 +2,9 @@ import { useState } from "react";
 
 import Navbar from "./components/Navbar"
 import ProductCard from "./components/ProductCard";
+import LoginStatus from "./components/LoginStatus";
+import LoadingState from "./components/LoadingState";
+import ErrorState from "./components/ErrorState";
 import Header from "./components/Header";
 import Greeting from "./components/Greeting";
 import Main from "./components/Main";
@@ -26,6 +29,10 @@ import Variable from "./components/Variable";
 function App() {
   const [ cartCount, setCartCount] = useState(0);
   const handleAdd = () => setCartCount(cartCount + 1);
+
+  const [ loading, setLoading] = useState(true);
+  const [ error, setError] = useState(false);
+
   const [ name, setName] = useState("");
   const [ searchText, setSearchText] = useState("");
 
@@ -33,6 +40,18 @@ function App() {
     <>
       <Navbar cartCount={cartCount} />
       <ProductCard addToCart={handleAdd} />
+
+      <LoginStatus />
+
+      <LoadingState 
+        oading={loading} 
+        setLoading={setLoading}
+      />
+
+      <ErrorState 
+        error={error}
+        setError={setError}
+      />
 
       <Header />
 
@@ -47,15 +66,7 @@ function App() {
       <Card title="JavaScript" />
       <Card title="React" />
 
-      <Product
-        name="Keyboard"
-        price={1999}
-      />
-
-      <Product
-        name="Mouse"
-        price={999}
-      />
+      <Product />
 
       <ClickButtons />
 

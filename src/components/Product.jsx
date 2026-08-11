@@ -1,17 +1,32 @@
-function Product({ name, price }) {
+function Products() {
+  const products = [
+    {
+      id: 1,
+      name: "Keyboard",
+      price: 1999,
+    },
+    {
+      id: 2,
+      name: "Mouse",
+      price: 999,
+    },
+    {
+      id: 3,
+      name: "Monitor",
+      price: 12999,
+    },
+  ];
 
-    return (
+  const sortedProducts = [...products].sort(
+    (a, b) => a.price - b.price
+  );
 
-        <>
-
-            <h2>{name}</h2>
-
-            <p>₹{price}</p>
-
-        </>
-
-    );
-
+  return sortedProducts.map((product) => (
+    <div key={product.id}>
+      <h2>{product.name}</h2>
+      <p>{product.price}</p>
+    </div>
+  ));
 }
 
-export default Product;
+export default Products;
