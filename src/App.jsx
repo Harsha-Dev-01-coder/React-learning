@@ -25,6 +25,7 @@ import SearchBar from "./components/SearchBar";
 import DisplayText from "./components/DisplayText";
 import Objects from "./components/Objects";
 import Variable from "./components/Variable";
+import UseEffect from "./components/UseEffect";
 
 function App() {
   const [ cartCount, setCartCount] = useState(0);
@@ -104,6 +105,8 @@ function App() {
       <Variable />
 
       <Objects />
+
+      <UseEffect />
 
       <Footer />
     </>
