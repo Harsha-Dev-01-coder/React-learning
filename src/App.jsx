@@ -26,6 +26,7 @@ import DisplayText from "./components/DisplayText";
 import Objects from "./components/Objects";
 import Variable from "./components/Variable";
 import UseEffect from "./components/UseEffect";
+import Users from "./components/Users";
 
 function App() {
   const [ cartCount, setCartCount] = useState(0);
@@ -107,6 +108,8 @@ function App() {
       <Objects />
 
       <UseEffect />
+
+      <Users />
 
       <Footer />
     </>
