@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchUsers } from "../services/api";
+import axios from "axios";
 
 function Users() {
   const [users, setUsers] = useState([]);
@@ -7,19 +7,21 @@ function Users() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function loadUsers() {
+    async function getUsers() {
       try {
-        const data = await fetchUsers();
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
 
-        setUsers(data);
+        setUsers(response.data);
       } catch {
-        setError("Failed to load users.");
+        setError("Failed to load users");
       } finally {
         setLoading(false);
       }
     }
 
-    loadUsers();
+    getUsers();
   }, []);
 
   if (loading) {
@@ -31,17 +33,17 @@ function Users() {
   }
 
   return (
-    <section>
-      <h2>Users</h2>
-
+    <div>
       {users.map((user) => (
         <div key={user.id}>
-          <h3>{user.name}</h3>
-
-          <p>{user.email}</p>
+          <h2>Name: {user.name}</h2>
+          <p>Email: {user.email}</p>
+          <p>Phone: {user.phone}</p>
+          <p>Website: {user.website}</p>
+          <hr />
         </div>
       ))}
-    </section>
+    </div>
   );
 }
 

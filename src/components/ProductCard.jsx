@@ -1,9 +1,13 @@
 function ProductCard({ addToCart }) {
   return (
     <div>
-      <h4>Sample Product</h4>
-      <p>₹499</p>
-      <button onClick={addToCart}>Add to Cart</button>
+      <h2>Keyboard</h2>
+
+      <p>₹1999</p>
+
+      <button onClick={addToCart}>
+        Add To Cart
+      </button>
     </div>
   );
 }

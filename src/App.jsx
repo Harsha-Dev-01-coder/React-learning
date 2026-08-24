@@ -1,115 +1,49 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar"
-import ProductCard from "./components/ProductCard";
-import LoginStatus from "./components/LoginStatus";
-import LoadingState from "./components/LoadingState";
-import ErrorState from "./components/ErrorState";
-import Header from "./components/Header";
-import Greeting from "./components/Greeting";
-import Main from "./components/Main";
-import Student from "./components/Student";
-import Card from "./components/Card";
-import Product from "./components/Product";
+
 import Footer from "./components/Footer";
-import ClickButtons from "./components/ClickButtons";
-import InputExample from "./components/InputExample";
-import LoginForm from "./components/LoginForm";
-import Premium from "./components/Premium";
-import FruitList from "./components/FruitList";
-import Counter from "./components/Counter";
-import UserInfo from "./components/userInfo";
-import UserInput from "./components/UserInput";
-import Profile from "./components/Profile"
-import SearchBar from "./components/SearchBar";
-import DisplayText from "./components/DisplayText";
-import Objects from "./components/Objects";
-import Variable from "./components/Variable";
-import UseEffect from "./components/UseEffect";
-import Users from "./components/Users";
+
+import NavbarRouter from "./pages/Navbar-router";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
+import Contact from "./pages/Contact";
+
+import Dashboard from "./pages/Dashboard";
+import Profiles from "./pages/Profiles";
+import Settings from "./pages/Settings";
+import Orders from "./pages/Orders";
 
 function App() {
-  const [ cartCount, setCartCount] = useState(0);
-  const handleAdd = () => setCartCount(cartCount + 1);
-
-  const [ loading, setLoading] = useState(true);
-  const [ error, setError] = useState(false);
-
-  const [ name, setName] = useState("");
-  const [ searchText, setSearchText] = useState("");
-
   return (
     <>
-      <Navbar cartCount={cartCount} />
-      <ProductCard addToCart={handleAdd} />
+      <NavbarRouter />
 
-      <LoginStatus />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+        <Route path="/contact" element={<Contact />} />
 
-      <LoadingState 
-        oading={loading} 
-        setLoading={setLoading}
-      />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route
+            path="profile"
+            element={<Profiles />}
+          />
 
-      <ErrorState 
-        error={error}
-        setError={setError}
-      />
+          <Route
+            path="settings"
+            element={<Settings />}
+          />
 
-      <Header />
-
-      <Greeting />
-
-      <Main />
-
-      <Student />
-
-      <Card title="HTML" />
-      <Card title="CSS" />
-      <Card title="JavaScript" />
-      <Card title="React" />
-
-      <Product />
-
-      <ClickButtons />
-
-      <InputExample />
-
-      <LoginForm />
-
-      <Variable />
-
-      <Premium />
-
-      <FruitList />
-
-      <Counter />
-
-      <UserInfo name={name} setName={setName} />
-
-      <UserInput name={name} setName={setName} />
-
-      <>
-        <SearchBar
-          searchText={searchText}
-          setSearchText={setSearchText}
-        />
-        <DisplayText searchText={searchText} />
-      </>
-
-      <>
-        <Profile
-          name="Elon Musk"
-          age={35}
-        />
-      </>
-
-      <Variable />
-
-      <Objects />
-
-      <UseEffect />
-
-      <Users />
+          <Route
+            path="orders"
+            element={<Orders />}
+          />
+          </Route>
+        </Routes>
 
       <Footer />
     </>

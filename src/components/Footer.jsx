@@ -1,5 +1,9 @@
 function Footer() {
-    return <h2>Footer</h2>;
+  return (
+    <footer>
+      <p>Copy right</p>
+    </footer>
+  );
 }
 
 export default Footer;
