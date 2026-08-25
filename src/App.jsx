@@ -1,6 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 
 import Footer from "./components/Footer";
+import Counter from "./components/ReducerCounter";
+
+import UserProfile from "./components/UserProfile";
+import UserDisplay from "./components/UserDisplay";
 
 import NavbarRouter from "./pages/Navbar-router";
 import Home from "./pages/Home";
@@ -14,9 +18,17 @@ import Profiles from "./pages/Profiles";
 import Settings from "./pages/Settings";
 import Orders from "./pages/Orders";
 
+
 function App() {
   return (
     <>
+      <Counter />
+
+      <UserProfile />
+
+      <UserDisplay />
+      
+
       <NavbarRouter />
 
       <Routes>
@@ -41,8 +53,8 @@ function App() {
             path="orders"
             element={<Orders />}
           />
-          </Route>
-        </Routes>
+        </Route>
+      </Routes>
 
       <Footer />
     </>
