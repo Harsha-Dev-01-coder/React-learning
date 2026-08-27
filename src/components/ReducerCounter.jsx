@@ -17,7 +17,6 @@ function reducer(state, action) {
     default:
     return state;
   }
-  
 }
 
 function Counter() {

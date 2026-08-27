@@ -6,6 +6,8 @@ import Counter from "./components/ReducerCounter";
 import UserProfile from "./components/UserProfile";
 import UserDisplay from "./components/UserDisplay";
 
+import CartSummary from "./context/UseCart"
+
 import NavbarRouter from "./pages/Navbar-router";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -27,7 +29,8 @@ function App() {
       <UserProfile />
 
       <UserDisplay />
-      
+
+      <CartSummary />
 
       <NavbarRouter />
 
