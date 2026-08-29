@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Counter from "./components/ReducerCounter";
 
+import ReduxUsers from "./components/ReduxUsers"
+
 import UserProfile from "./components/UserProfile";
 import UserDisplay from "./components/UserDisplay";
 
@@ -24,6 +26,8 @@ import Orders from "./pages/Orders";
 function App() {
   return (
     <>
+      <ReduxUsers />
+
       <Counter />
 
       <UserProfile />
