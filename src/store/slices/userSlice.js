@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+import {
+  getUsers,
+  createUser,
+  removeUser
+} from "../../services/userService";
+
 const initialState = {
   users: [],
   loading: false,
@@ -9,16 +15,14 @@ const initialState = {
 // FETCH USERS
 export const fetchUsers = createAsyncThunk(
   "users/fetchUsers",
-  async () => {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch users");
+  async (_, { rejectWithValue }) => {
+    try {
+      return await getUsers();
+    } catch (error) {
+      return rejectWithValue(
+        error.response?.data?.message || "Failed to fetch users"
+      );
     }
-
-    return response.json();
   }
 );
 
@@ -26,24 +30,7 @@ export const fetchUsers = createAsyncThunk(
 export const addUser = createAsyncThunk(
   "users/addUser",
   async (user) => {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/users",
-      {
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(user)
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to create user");
-    }
-
-    return response.json();
+    return await createUser(user);
   }
 );
 
@@ -51,21 +38,13 @@ export const addUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   "users/deleteUser",
   async (id) => {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/users/${id}`,
-      {
-        method: "DELETE"
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Failed to delete user");
-    }
+    await removeUser(id);
 
     return id;
   }
 );
 
+// SLICE
 const userSlice = createSlice({
   name: "users",
 
@@ -76,30 +55,30 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder
 
-      // FETCH - PENDING
+      // FETCH USERS - PENDING
       .addCase(fetchUsers.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
 
-      // FETCH - FULFILLED
+      // FETCH USERS - FULFILLED
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload;
       })
 
-      // FETCH - REJECTED
+      // FETCH USERS - REJECTED
       .addCase(fetchUsers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })
 
-      // ADD USER
+      // ADD USER - FULFILLED
       .addCase(addUser.fulfilled, (state, action) => {
         state.users.push(action.payload);
       })
 
-      // DELETE USER
+      // DELETE USER - FULFILLED
       .addCase(deleteUser.fulfilled, (state, action) => {
         state.users = state.users.filter(
           (user) => user.id !== action.payload
