@@ -9,8 +9,15 @@ import {
 const initialState = {
   users: [],
   loading: false,
+  adding: false,
   error: null
 };
+
+  // USER SELECTERS
+  export const selectUsers = state => state.users.users;
+  export const selectUsersLoading = state => state.users.loading;
+  export const selectUsersAdding = state => state.users.adding;
+  export const selectUsersError = state => state.users.error;
 
 // FETCH USERS
 export const fetchUsers = createAsyncThunk(
