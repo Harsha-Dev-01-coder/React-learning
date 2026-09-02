@@ -22,6 +22,9 @@ import Profiles from "./pages/Profiles";
 import Settings from "./pages/Settings";
 import Orders from "./pages/Orders";
 
+import TypedState from "./typescript.js/typedState";
+import UseEffect from "./typescript.js/useEffect";
+
 
 function App() {
   return (
@@ -62,6 +65,10 @@ function App() {
           />
         </Route>
       </Routes>
+
+      <TypedState />
+
+      <UseEffect />
 
       <Footer />
     </>
