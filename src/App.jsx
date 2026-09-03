@@ -25,6 +25,8 @@ import Orders from "./pages/Orders";
 import TypedState from "./typescript.js/typedState";
 import UseEffect from "./typescript.js/useEffect";
 
+import RegistrationForm from "./components/RegistrationForm";
+
 
 function App() {
   return (
@@ -69,6 +71,8 @@ function App() {
       <TypedState />
 
       <UseEffect />
+
+      <RegistrationForm />
 
       <Footer />
     </>
