@@ -31,6 +31,36 @@ import RegistrationForm from "./components/RegistrationForm";
 function App() {
   return (
     <>
+      <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">
+        Hello Tailwind
+      </h1>
+
+      <p className="px-6 py-6 pt-6">
+        Starting of Tailwind CSS
+      </p>
+
+      <input className="border border-gray-300 rounded-lg"/>
+
+      <div className="w-full max-w-md bg-blue-600 text-white">
+        Content
+      </div>
+
+      <h1 className="text-3xl font-bold">
+        Dashboard
+      </h1>
+
+      <button
+        disabled
+        className="bg-blue-600 disabled:opacity-50"
+      >
+        Submit
+      </button>
+
+      <div className="flex gap-6">
+        <button>One</button>
+        <button>Two</button>
+      </div>
+
       <ReduxUsers />
 
       <Counter />
