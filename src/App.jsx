@@ -29,6 +29,8 @@ import RegistrationForm from "./components/RegistrationForm";
 
 
 function App() {
+  const isActive = true;
+
   return (
     <>
       <h1 className="text-4xl font-bold text-blue-600 mb-6 text-center">
@@ -38,6 +40,27 @@ function App() {
       <p className="px-6 py-6 pt-6">
         Starting of Tailwind CSS
       </p>
+
+      <div className="
+        h-6
+        w-40
+        rounded
+        bg-gray-200
+        animate-pulse
+      ">
+      </div>
+
+      <button className="
+        fixed
+        bottom-6
+        right-6
+      ">
+        +
+      </button>
+
+      <div className="bg-white text-black dark:bg-gray-900 dark:text-white">
+        Hello
+      </div>
 
       <input className="border border-gray-300 rounded-lg"/>
 
@@ -56,10 +79,124 @@ function App() {
         Submit
       </button>
 
+      <button className="
+        bg-blue-600
+        hover:bg-blue-700
+        focus:ring-2
+        active:scale-95
+      ">
+        Click
+      </button>
+
       <div className="flex gap-6">
         <button>One</button>
         <button>Two</button>
       </div>
+
+      <button className="
+        transition
+        duration-200
+        hover:bg-blue-700
+      ">
+        Hello
+      </button>
+
+      <div className="
+        group
+        rounded-xl
+        p-6
+        shadow
+        hover:shadow-xl
+        transition
+      ">
+        <h2 className="
+          font-bold
+          group-hover:text-blue-600
+      ">
+        React
+        </h2>
+
+      <button className="
+        opacity-0
+        group-hover:opacity-100
+      ">
+        Learn More
+        </button>
+      </div>
+
+      <input
+        className="peer border"
+        placeholder=" "
+      />
+
+      <label className="
+        peer-focus:text-blue-600
+      ">
+        Email
+      </label>
+
+      <button
+        className={isActive
+          ? "bg-blue-600 text-white"
+          : "bg-gray-200 text-black"
+        }
+      >
+        Home
+      </button>
+
+      <div className="
+        group
+        overflow-hidden
+        rounded-2xl
+        border
+        border-gray-200
+        bg-white
+        shadow-sm
+        transition
+        duration-300
+        hover:-translate-y-1
+        hover:shadow-xl
+      ">
+
+      <img
+        src="/image.png"
+        className="
+          h-64
+          w-full
+          object-cover
+          transition
+          duration-300
+          group-hover:scale-105
+        "
+      />
+
+      <div className="p-6">
+        <h2 className="
+          text-xl
+          font-bold
+          group-hover:text-blue-600
+        ">
+          React Course
+        </h2>
+
+        <p className="mt-2 text-gray-600">
+          Learn React from the ground up.
+        </p>
+
+        <button className="
+          mt-4
+          rounded-lg
+          bg-blue-600
+          px-4
+          py-2
+          text-white
+          transition
+          hover:bg-blue-700
+        ">
+          Learn More
+        </button>
+      </div>
+    </div>
 
       <ReduxUsers />
 
